@@ -1,15 +1,25 @@
 # Ambidex Game
 
-A LAN multiplayer implementation of the Ambidex game from *Virtue's Last Reward*. Host a game on PC and have players join via Android or any device on the same network.
+![Ambidex Game Logo](https://media.discordapp.net/attachments/1153393930872827945/1519425836774719658/ABgamelogo.png?ex=6a3d8315&is=6a3c3195&hm=d3d0da9278b862cea156379992a971a8ec0da030404832df85863b51521a2e3b&=&format=webp&quality=lossless&width=1216&height=684)
+"So what's it going to be? Will you choose to ally? ...Or to betray?"
+This web-based game tries to make a 1:1 recreation of the Ambidex game featured in *Zero Escape: Virtue's Last Reward*.
+
+## What is the Ambidex Game?
+
+The Ambidex Game is Kotaro Uchikoshi's vision of the Prisoner's Dilemma. You either work in a pair, or a solo, and there can only be up to three solo and pair groups. Each group of solos and pairs are put against the other in a game where they have to choose to Ally, or to Betray. If both teams ally, then each one of the members in the group get 2 points. If one chooses ally and gets betrayed, the betrayed participant(s) loses 2 points while the ones who betray get 3 points, if both betray, no points for any; and so on.
+
+![Ambidex Game Table](https://i.ytimg.com/vi/bdcv-LF3eQg/hqdefault.jpg)
+
+I thought it would be a highly interesting concept to take into a LAN game. Maybe you want to put your friend's trust at test, or perhaps you want to place 9 strangers together in one facility going against eachother, which seems like a nice sunday plan.
 
 ## Features
 
-- **Desktop exe**: Runs as server + host UI in a frameless window
-- **Android APK**: Join-only client with mobile-optimized UI
+- **Desktop exe**: Runs as server + host UI in a frameless window (only allows one instance per computer, localhost exists for browser clients on port 3000)
+- **Android APK**: Join-only client with a simple UI
 - **LAN multiplayer**: No internet required, works over local network
 - **Terminal-style UI**: Source Code Pro font, teal color scheme, retro terminal aesthetic
 - **Ambidex gameplay**: Ally/Betray votes, slot pairings, real-time results reveal
-- **OST Music Player**: Built-in player with VLR/999 soundtrack (host only)
+- **OST Music Player**: Built-in player with VLR/999 soundtrack for the host.
 
 ## Quick Start
 
@@ -40,10 +50,10 @@ cd android
 
 ## Controls
 
-- **HOST GAME**: Start a server and manage players/rounds
+- **HOST GAME**: Start a server and manage players, rounds and solo/pairs grouping.
 - **JOIN TEAM**: Enter the host's LAN IP to connect as a player
 - **Fullscreen toggle**: Bottom-right corner (PC only)
-- **Music player**: Bottom-left corner (host only) — select and play VLR/999 tracks
+- **Music player**: Bottom-left corner in the host menu — select and play VLR/999 tracks
 
 ## Project Structure
 
@@ -74,3 +84,5 @@ ambidex-game/
 ## License
 
 MIT
+
+*Virtue's Last Reward and the Ambidex Game owned by Kotaro Uchikoshi for Aksys Games, Spike Chunsoft - Misakii-P 2026*
