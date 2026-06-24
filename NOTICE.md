@@ -16,7 +16,7 @@ This project uses assets from the *Zero Escape* series, developed by **Chunsoft*
 - `VLR_logo.png` — *Virtue's Last Reward* logo
 
 ### Sound Effects
-Some sound effects (`result.wav`, `resound.wav`, `start.wav`, `vote.wav`, `title.wav`, `connected.wav`, `wrong.wav`, `selection.wav`) may be derived from or inspired by the Zero Escape series.
+Some sound effects (`result.wav`, `resound.wav`, `start.wav`, `vote.wav`, `title.wav`, `connected.wav`, `wrong.wav`, `selection.wav`) are derived from the Zero Escape series.
 
 All Zero Escape assets are the property of their respective owners. This project is a fan work and is not affiliated with or endorsed by Spike Chunsoft or Chunsoft.
 
