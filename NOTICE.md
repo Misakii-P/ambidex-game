@@ -22,11 +22,13 @@ All Zero Escape assets are the property of their respective owners. This project
 
 ## Other Assets
 - **Source Code Pro** font — licensed under SIL Open Font License 1.1
-- **Socket.IO** — licensed under MIT
-- **Express** — licensed under MIT
-2. Agregá al final del README.md:
-## Attribution
-
-See [NOTICE.md](./NOTICE.md) for copyright information on game assets used in this project.
+- **Socket.IO** — MIT — https://github.com/socketio/socket.io
+- **Socket.IO Client** — MIT — https://github.com/socketio/socket.io-client
+- **Express** — MIT — https://github.com/expressjs/express
+- **Capacitor** — MIT — https://github.com/ionic-team/capacitor
+- **Nexe** — MIT — https://github.com/nexe/nexe
+- **pkg** — MIT — https://github.com/vercel/pkg
+- **rcedit** — MIT — https://github.com/electron/rcedit
+- **resedit** — MIT — https://github.com/teamsimmer/resedit
 
 This is a fan project and is not affiliated with or endorsed by Spike Chunsoft. The Zero Escape series is the property of Spike Chunsoft and Chunsoft.
