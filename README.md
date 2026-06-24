@@ -81,8 +81,14 @@ ambidex-game/
 - **Desktop**: Nexe (bundles server into Windows exe)
 - **Android**: Capacitor v8 (wraps web client as native APK)
 
+## Attribution
+
+All Zero Escape series assets (music, images, sound effects) used in this
+project are the property of **Spike Chunsoft** and **Chunsoft**. This is a
+fan work and is not affiliated with or endorsed by them.
+
+See [NOTICE.md](./NOTICE.md) for detailed attributions.
+
 ## License
 
-MIT
-
-*Virtue's Last Reward and the Ambidex Game owned by Kotaro Uchikoshi for Aksys Games, Spike Chunsoft - Misakii-P 2026*
+MIT — © 2026 Misakii-P
