@@ -1,0 +1,22 @@
+node_modules/
+dist/
+.env
+*.log
+.DS_Store
+Thumbs.db
+
+# Android build outputs
+android/.gradle/
+android/app/build/
+android/build/
+android/captures/
+android/local.properties
+
+# Capacitor generated web assets
+android/app/src/main/assets/public/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo

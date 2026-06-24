@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Ambidex Game</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style-mobile.css">
+<link rel="icon" type="image/png" href="/favicon.png">
+<script src="/socket.io.min.js"></script>
+<script src="/game.js"></script>
+</head>
+<body>
+<div class="container">
+
+  <audio id="voteSound" preload="auto" src="/result.wav"></audio>
+  <audio id="resultSound" preload="auto" src="/resound.wav"></audio>
+  <audio id="startSound" preload="auto" src="/start.wav"></audio>
+  <audio id="voteSelectSound" preload="auto" src="/vote.wav"></audio>
+  <audio id="titleSound" preload="auto" src="/title.wav"></audio>
+  <audio id="connectedSound" preload="auto" src="/connected.wav"></audio>
+  <audio id="wrongSound" preload="auto" src="/wrong.wav"></audio>
+  <audio id="selectionSound" preload="auto" src="/selection.wav"></audio>
+  <div id="screenOverlay" style="position:fixed;inset:0;background:#000;opacity:0;pointer-events:none;z-index:200;transition:opacity 0.3s;"></div>
+
+  <!-- Connection Screen -->
+  <div id="mobileConnect" class="section active">
+    <div class="terminal-start">
+      <img src="/VLR_logo.png" alt="VLR" class="start-logo">
+      <div class="start-subtitle">Ambidex Game</div>
+      <div class="connect-screen">
+        <div class="terminal-prompt">Enter Server IP<span class="cursor-blink">_</span></div>
+        <div class="connect-form">
+          <input type="text" id="mobileIpInput" placeholder="e.g. 192.168.1.100" autocapitalize="off" autocomplete="off" spellcheck="false">
+          <button class="btn btn-large" onclick="connectMobile()">JOIN</button>
+        </div>
+        <div id="connectError" class="connect-error"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Player: Slot Select -->
+  <div id="playerJoin" class="section">
+    <h3>Select Your Slot</h3>
+    <div id="slotSelectGrid" class="team-select-grid"></div>
+    <div class="join-info">Waiting for host to set up round...</div>
+  </div>
+
+  <!-- Player: Waiting -->
+  <div id="playerWaiting" class="section">
+    <div id="playerSlotBanner" class="my-team-banner"></div>
+    <div id="playerWaitPoints" style="display:flex;gap:20px;justify-content:center;"></div>
+    <div id="playerWaitMsg" class="waiting-msg">Waiting for host...</div>
+  </div>
+
+  <!-- Player: Ready -->
+  <div id="playerReady" class="section">
+    <div class="ready-inner">
+      <div class="ready-text">
+        <p>The Ambidex Game will now begin. To enter your vote, please touch the "START" button on your screen.</p>
+        <p>Once you have entered your vote, the door will lock automatically. It will not open again until the polling period has finished.</p>
+      </div>
+      <div class="ready-start-wrap">
+        <button class="ready-start" onclick="beginVoting(this)">START</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Player: Vote -->
+  <div id="playerVote" class="section">
+    <div class="vote-btn-wrap">
+      <button class="vote-btn" onclick="sendVote(this,'ally')">A : Ally</button>
+    </div>
+    <div class="vote-btn-wrap">
+      <button class="vote-btn" onclick="sendVote(this,'betray')">B : Betray</button>
+    </div>
+  </div>
+
+  <!-- Player: Done -->
+  <div id="playerDone" class="section">
+    <div id="playerDoneBanner" class="my-team-banner"></div>
+    <div id="playerDonePoints" style="display:flex;gap:20px;justify-content:center;margin:15px 0;"></div>
+    <div id="playerDoneMsg" class="waiting-msg">Round complete! Waiting for next round...</div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('click', function firstClick() {
+  document.removeEventListener('click', firstClick);
+  playTitle();
+}, { once: true });
+function connectMobile() {
+  stopTitle();
+  const ip = $('mobileIpInput').value.trim();
+  if (!ip) { $('connectError').textContent = 'Enter a server IP'; return; }
+  $('connectError').textContent = 'Connecting...';
+  const url = ip.includes('://') ? ip : 'http://' + ip + ':3000';
+  socket = io(url, { transports: ['websocket'] });
+  setupSocket(socket);
+  socket.on('connect_error', (err) => {
+    playSound('wrongSound');
+    if (!$('mobileConnect').classList.contains('active')) {
+      show('mobileConnect');
+    }
+    $('connectError').textContent = 'Connection failed — ' + err.message;
+  });
+  show('playerJoin');
+}
+</script>
+</body>
+</html>
